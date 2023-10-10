@@ -289,7 +289,7 @@ with col[0][2]:
         if not "3" in st.session_state["ДЫМОЗОР серия"]:
             st.session_state['ДЫМОЗОР напряжение привода'] = '24'
         if st.session_state["ДЫМОЗОР серия"] in ["ДЫМОЗОР®-100", "ДЫМОЗОР®-200", "ДЫМОЗОР®-500"]:
-            st.session_state["Тип крышки"] = st.radio("Тип крышки", options=('У', 'П', 'А', 'АА', 'ААА'), horizontal=True)
+            st.session_state["Тип крышки"] = st.radio("Тип крышки", options=('У', 'П', 'ААА'), horizontal=True)
             with st.expander(f'Описание крышки {st.session_state["Тип крышки"]}'):
                 st.write(opis_krsh_dimozor(st.session_state["Тип крышки"]))
         elif st.session_state["ДЫМОЗОР серия"] in ["ДЫМОЗОР®-300", "ДЫМОЗОР®-600"]:
@@ -306,7 +306,7 @@ except:
 try:
     spisok = ["Площадь проёма дымоудаления", "Расход удаляемых продуктов горения", "Площадь проёма компенсации", "Расход приточного воздуха", "Скорость потока в проёме компенсации"]
     raschdic = {"Расчётные данные":{spisok[i]:st.session_state["Данные рассчёта"][i] for i in range(len(spisok))}}
-    st.write(raschdic)
+    # st.write(raschdic)
 except:
     pass
 with col[0][3]:
@@ -357,7 +357,7 @@ try:
     st.write("#### Люк компенсации ###")
     st.session_state["ТИП ЛЮКА КОМПЕНСАЦИИ"] = st.radio("Выберите люк компесации", options=("ДЫМОЗОР®-300", "ДЫМОЗОР®-500") if st.session_state['ДЫМОЗОР напряжение привода']=="24" else ("ДЫМОЗОР®-300",), horizontal=True)
     if "5" in st.session_state["ТИП ЛЮКА КОМПЕНСАЦИИ"]:
-        st.session_state["Тип крышки на компенсации"] = st.radio("Выберите крышку люка компесации", options=('У', 'П', 'А', 'АА', 'ААА'), horizontal=True)
+        st.session_state["Тип крышки на компенсации"] = st.radio("Выберите крышку люка компесации", options=('У', 'П', 'ААА'), horizontal=True)
     else:
         st.session_state["Тип крышки на компенсации"] = "У"
     st.image(picture_url(st.session_state["ТИП ЛЮКА КОМПЕНСАЦИИ"], "Р"))
