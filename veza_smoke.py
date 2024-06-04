@@ -256,6 +256,7 @@ with col[0][0]:
             st.session_state["Данные рассчёта"] = rasschet_plosh(first_window, ploshi)
         except:
             st.session_state["Данные рассчёта"] = []
+st.session_state["Данные рассчёта"]
 st.markdown("---")
 with col[0][2]:
     if not len(st.session_state["Данные рассчёта"]):
